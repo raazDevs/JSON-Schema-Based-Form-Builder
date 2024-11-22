@@ -1,23 +1,42 @@
 "use client"
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { JSONEditor } from '../components/JSONEditor';
 import { DynamicForm } from '../components/DynamicForm';
 import { Moon, Sun } from 'lucide-react';
 
-const placeholderSchema = {
+interface FormField {
+  id: string;
+  type: 'text' | 'email' | 'select' | 'radio' | 'textarea';
+  label: string;
+  required: boolean;
+  placeholder?: string;
+  validation?: {
+    pattern?: string;
+    message?: string;
+  };
+  options?: Array<{ value: string; label: string }>;
+}
+
+interface FormSchema {
+  formTitle: string;
+  formDescription: string;
+  fields: FormField[];
+}
+
+const placeholderSchema: FormSchema = {
   formTitle: "Enter your JSON schema",
   formDescription: "Use the editor on the left to input your form schema",
   fields: []
 };
 
 export default function Home() {
-  const [schema, setSchema] = useState<any>(null);
+  const [schema, setSchema] = useState<FormSchema | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const [formSubmissions, setFormSubmissions] = useState<any[]>([]);
+  const [formSubmissions, setFormSubmissions] = useState<Record<string, string>[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const root = window.document.documentElement;
     if (isDarkMode) {
       root.classList.add('dark');
@@ -32,7 +51,7 @@ export default function Home() {
         setSchema(null);
         setFormSubmissions([]); // Reset form submissions when JSON is cleared
       } else {
-        const newSchema = JSON.parse(value);
+        const newSchema = JSON.parse(value) as FormSchema;
         setSchema(newSchema);
       }
     } catch (error) {
@@ -42,7 +61,7 @@ export default function Home() {
     }
   }, []);
 
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: Record<string, string>) => {
     console.log('Form submitted:', data);
     setFormSubmissions(prev => [...prev, data]);
     // Simulate API call
@@ -116,7 +135,7 @@ export default function Home() {
           {schema ? (
             <DynamicForm schema={schema} onSubmit={handleSubmit} />
           ) : (
-            <DynamicForm schema={placeholderSchema} onSubmit={() => {}} />
+            <DynamicForm schema={placeholderSchema} onSubmit={async () => {}} />
           )}
           {successMessage && (
             <div className="mt-4 p-2 bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-100 rounded">

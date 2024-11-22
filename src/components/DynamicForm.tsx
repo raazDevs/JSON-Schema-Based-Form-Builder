@@ -27,7 +27,7 @@ interface FormSchema {
 
 interface DynamicFormProps {
   schema: FormSchema;
-  onSubmit: (data: any) => Promise<void>;
+  onSubmit: (data: Record<string, string>) => Promise<void>;
 }
 
 function generateZodSchema(schema: FormSchema) {
@@ -83,7 +83,7 @@ export function DynamicForm({ schema, onSubmit }: DynamicFormProps) {
     mode: 'onChange',
   });
 
-  const handleFormSubmit = async (data: any) => {
+  const handleFormSubmit = async (data: Record<string, string>) => {
     setIsSubmitting(true);
     try {
       await onSubmit(data);
