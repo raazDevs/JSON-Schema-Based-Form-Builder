@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import Editor, { OnMount, Monaco } from "@monaco-editor/react";
+import Editor, { OnMount } from "@monaco-editor/react";
 import * as monaco from 'monaco-editor';
 import { isValidJSON } from '../utils/jsonValidator';
 
@@ -25,7 +25,7 @@ export function JSONEditor({ initialValue, onChange, isDarkMode }: JSONEditorPro
     }
   }, [onChange]);
 
-  const handleEditorDidMount: OnMount = (editor, monacoInstance) => {
+  const handleEditorDidMount: OnMount = (editor) => {
     editorRef.current = editor;
     editor.onDidPaste(() => {
       const value = editor.getValue();
