@@ -90,7 +90,7 @@ The JSON Schema Form Generator is a powerful, dynamic web application that allow
 
 Your JSON schema should follow this structure:
 
-\`\`\`json
+```JSON
 {
   "formTitle": "String",
   "formDescription": "String",
@@ -111,7 +111,7 @@ Your JSON schema should follow this structure:
     }
   ]
 }
-\`\`\`
+```
 
 ## Development
 
