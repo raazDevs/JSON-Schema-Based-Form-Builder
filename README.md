@@ -4,20 +4,23 @@
 
 The JSON Schema Form Generator is a powerful, dynamic web application that allows users to create complex forms on-the-fly using JSON schemas. Built with modern web technologies, this tool offers real-time form generation and validation, making it an ideal solution for developers, designers, and businesses looking to streamline their form creation process.
 
-## Key Features
+## 🚀 Key Features
 
-- **Dynamic Form Generation**: Instantly create forms from JSON schemas
-- **Real-time Preview**: See your form take shape as you type your JSON schema
-- **Robust Validation**: Built-in form validation using Zod ensures data integrity
-- **Responsive Design**: Fully responsive layout works on desktop and mobile devices
-- **Dark/Light Mode**: Support for both dark and light themes to suit user preferences
-- **JSON Editor**: Integrated Monaco Editor for a superior JSON editing experience
-- **Form Submission Handling**: Capture and download form submissions easily
-- **Accessibility**: Designed with accessibility in mind, following WCAG guidelines
+- 🔄 **Dynamic Form Generation**: Instantly create and preview forms from JSON schemas in real-time
+- ✅ **Robust Validation**: Built-in form validation using Zod ensures data integrity
+- 🌓 **Dark/Light Mode**: Toggle between themes to suit your preference and reduce eye strain
+- 📱 **Responsive Design**: Fully functional layout on both desktop and mobile devices
+- 🖋 **Advanced JSON Editing**: Integrated Monaco Editor for a superior JSON authoring experience
+- 💾 **Form Submission Handling**: Easily capture, manage, and download form submissions
+- ♿ **Accessibility-Focused**: Designed following WCAG guidelines for inclusive user experience
+- 🔧 **Customizable UI**: Flexible styling options to match your brand or project needs
+- 🚀 **Performance Optimized**: Fast loading and rendering for smooth user interactions
+- 🔒 **Secure by Design**: Implements best practices for form security and data protection
+
 
 ## Technology Stack
 
-- **Frontend Framework**: Next.js/ React.js 18 
+- **Frontend:** Next.js 13 (App Router), React.js(18+)
 - **Language**: TypeScript
 - **UI Components**: shadcn/ui (based on Radix UI)
 - **Styling**: Tailwind CSS
