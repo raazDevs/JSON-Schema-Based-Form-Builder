@@ -2,7 +2,7 @@ export function isValidJSON(json: string): boolean {
   try {
     JSON.parse(json);
     return true;
-  } catch (_error) {
+  } catch (_) {
     return false;
   }
 }
